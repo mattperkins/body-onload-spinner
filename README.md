@@ -1,0 +1,1 @@
+# Spinner Preloader for async data
