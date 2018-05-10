@@ -1,1 +1,1 @@
-# Spinner Preloader for async data
+# body onload - spinner preloader

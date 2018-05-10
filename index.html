@@ -4,37 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Spinner Preloader</title>
+    <title>Body onload - Spinner preloader</title>
     <style>
-    .wrapper{
-        width: 600px;
+    .loading, .loaded{
+        max-width: 1200px;
         margin: auto;
+        padding: 20px;
         display: grid;
         place-items: center;
     }
+    .loading.hide, .loaded.hide{
+        display: none;
+    }
     .spinner{
-        border: 6px solid #ccc;
-        width: 60px;
-        height: 60px;
+        border: 60px solid #ccc;
+        width: 360px;
+        height: 360px;
+        border-radius: 100%;
+        background-color: #f333;
         border-top-color: #1ecd97;
-        animation: lemon 1s infinite ease-in-out;
+        border-right-color: #f33;
+        border-left-color: #333;
+        animation: lemon 8s infinite ease-in-out;
+        box-shadow:4px 4px 4px #eee;
     }
 
     @keyframes lemon{
         0%{
-            transform: rotate(0deg)
+            transform: rotate(0deg);
         }
         100%{
-            transform: rotate(360deg)
+            transform: rotate(1080deg);
         }
     }
+
+    .loadText{
+        font: 3vw/1.2 arial, sans-serif;
+    }    
     </style>
 </head>
-<body>
-    <div class="wrapper">
-        <div class="spinner">
-
+<body onload="hideLoader()">
+    <div class="loading">
+        <!-- <div class="spinner"></div> -->
+        <div class="loadText">
+            Optimising media content... <br />
+            Loading data...<br /> 
+            One moment please...
         </div>
     </div>
+
+    <div class="loaded loadText">
+        Hello
+    </div>
+
+    <script>
+        function hideLoader(){
+            document.querySelector('.loaded').classList.remove('hide')
+            document.querySelector('.loading').classList.add('hide')
+        }
+    </script>
 </body>
 </html>
